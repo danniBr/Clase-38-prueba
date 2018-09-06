@@ -1,3 +1,17 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Tasks</h1>
 
+<div class="container">
+	<div class="row">
+		<% @tasks.each do | task | %>
+		  <div class="col-md-4">
+		    <div class="card">
+		       <%= image_tag(task.photo, :class => 'img-responsive' ) %>
+		       <div class="body">
+		        <h5><%= task.name %></h5>
+		       <% link_to "comprar", "#", class: "btn btn-success" %>
+		       </div>
+		    </div>
+		  </div>
+		<% end %>
+	</div>
+</div>
