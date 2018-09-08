@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -8,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<%= root_path %>">18 Todo List App</a>
+      <a class="navbar-brand" href="<%= root_path %>"><strong>18 ToDo List App</strong></a>
     </div>
     <ul class="nav navbar-nav">
       <% if user_signed_in? %>
@@ -21,7 +20,7 @@
 		  <% if user_signed_in? %>
 		    <li><a href="<%= destroy_user_session_path%>" data-method="DELETE">Salir</a></li>
       <% else %>
-        <li><a href="<%= new_user_session_path%>">Iniciar sesion</a></li>
+        <li><a href="<%= new_user_session_path%>">Iniciar sesión</a></li>
         <li><a href="<%= new_user_registration_path%>">Registrarse</a></li>
 		  <% end %>
       </ul>

@@ -1,28 +1,34 @@
-<p id="notice"><%= notice %></p>
-<p id="alert"><%= alert %></p>
-<h1>Tasks</h1>
+<h1>Tareas</h1>
+<p>Completa las tareas que hiciste en este 18 de septiembre</p>
   <div class="row">
     <% @tasks.each do | task | %>
 
-      <div class="col-md-4">
-        <div class="card">
-           <%= image_tag(task.photo, :class => 'img-responsive' ) %>
-           <div class="body">
-            <h5><%= task.name %></h5>
+      <div class="col-md-4 col-sm-6">
+        <div class="thumbnail">
+              <% if !UserTask.find_by(task_id: task, user_id: current_user).nil? %>
 
-           <% if !UserTask.find_by(task_id: task, user_id: current_user).nil? %>
-              
-              <% if UserTask.find_by(task_id: task, user_id: current_user).status == true %>
-                  <%= link_to 'Destroy', delete_user_task_path(task, current_user.user_tasks), confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger' %>
+                <% if UserTask.find_by(task_id: task, user_id: current_user).status == true %>
+                  
+                  <%= image_tag(task.photo, :class => 'img-responsive' ) %>
+                  <div class="caption">
+                    <h4><%= task.name %></h4>
+                  
+                    <%= link_to 'No completada', delete_user_task_path(task, current_user.user_tasks), confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger' %>
+                <% else %>
+                  <%= image_tag(task.photo, :class => 'desaturate img-responsive' ) %>
+                  <div class="caption">
+                    <h4><%= task.name %></h4>
+                    <%= link_to "Completar", task_user_tasks_path(task), method: :post, class: "btn btn-success" %>
+                <% end %>
               <% else %>
-                  <%= link_to "Listo", task_user_tasks_path(task), method: :post, class: "btn btn-success" %>
+                <%= image_tag(task.photo, :class => 'desaturate img-responsive' ) %>
+                  <div class="caption">
+                    <h4><%= task.name %></h4>
+                    <%= link_to "Completar", task_user_tasks_path(task), method: :post, class: "btn btn-success" %>
               <% end %>
-           <% else %>
-              <%= link_to "Listo", task_user_tasks_path(task), method: :post, class: "btn btn-success" %>
-           <% end %>
            <%= link_to 'Ver tarea', task, :class => 'btn btn-info' %>
            
-           </div>
+                  </div>
         </div>
       </div>
     <% end %>

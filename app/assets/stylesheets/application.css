@@ -13,3 +13,98 @@
  *= require_tree .
  *= require_self
  */
+body {
+ 	background: #f1f1f1;
+ 	padding-bottom: 30px;
+ }
+.navbar {
+	background-color: #2a4968;
+    border: 0;
+	border-radius: 0;
+}
+.navbar-brand,
+.navbar-default .navbar-nav>li>a {
+	padding: 25px;
+}
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-nav>li>a:focus, 
+.navbar-default .navbar-nav>li>a:hover,
+a:visited {
+    color: #ffffff;
+}
+.btn-default:visited {
+	color: #333333;
+}
+.navbar-default .navbar-nav>li>a:hover {
+	background: #1c3c5d;
+}
+.thumbnail>img {
+	width: 100%;
+    max-height: 235px;
+    display: block;
+}
+img.desaturate {
+	filter: grayscale(100%);
+}
+label {
+    display: inline-block;
+}
+.listado {
+    background: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+}
+.listado li {
+	list-style: none;
+	margin-top: 10px;
+}
+.listado h3 {
+    margin: 20px;
+}
+.listado .img-avatar {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+.listado span {
+	 margin-left: 10px;
+	 font-weight: 700;
+	 font-size: 14px;
+}
+.glyphicon-star {
+	color: yellow;
+}
+.listado.normal {
+	margin-top: 20px;
+}
+.listado.normal li {
+	list-style: disc;
+	font-size: 17px;
+}
+input, select, textarea {
+    width: 240px;
+    padding:0 10px;
+    height: 27px;
+    border-radius: 2px;
+    border: 1px solid #cecece;
+}
+.btn {
+	height: auto;
+}
+input[type=checkbox], 
+input[type=radio] {
+	width: auto;
+	vertical-align: bottom;
+}
+@media (max-width: 992px) {
+	.thumbnail>img {
+		max-height: 210px;
+	}
+}
+@media (max-width: 768px) {
+	.thumbnail>img {
+		max-height: none;
+	}
+}

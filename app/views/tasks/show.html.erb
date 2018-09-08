@@ -1,32 +1,39 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-12">
+		<%= link_to 'Back', tasks_path, :class => 'btn btn-default' %>
 		<h2>Tarea: <%= @task.name %></h2>
-		<%= image_tag(@task.photo, :class => 'img-responsive' ) %>
 	</div>
-	<div class="col-md-7 pull-right">
-		<div class="row">
-			<div class="col-md-6">
-				<h3>Ranking</h3>
-				 <% @user_tasks.limit(4).each do |user| %>
-				    <li>
-				    	<%= image_tag(user.photo) %>
-				    	<p><%= user.name %></p>	
-				    </li> 
-				 <% end %>
-				
-			</div>
-			<div class="col-md-6">
-				<h4>Completado por: </h4>
-				<% @task.users.each do |user| %>
-				    <li><%= user.name %></li> 
-				 <% end %>
-			</div>
-		</div>
-	</div>
-	
 </div>
 
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<div class="row">
+	<div class="col-md-6 col-sm-12">
+		<%= image_tag(@task.photo, :class => 'img-responsive' ) %>
+	</div>
+	<div class="col-md-6 col-sm-12">
+		<div class="listado">
+			<h3>Ranking</h3>
+			<ul>
+			 <% @user_tasks.limit(5).each do |user| %>
+			    <li>
+			    	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+			    	<%= image_tag(user.photo, :class => 'img-avatar') %>
+			    	<span><%= user.name %></span>	
+			    </li> 
+			 <% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="listado normal ">
+			<h3>Completado por: </h3>
+			<ul>
+			<% @task.users.each do |user| %>
+				<li><%= user.name %></li> 
+			<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
