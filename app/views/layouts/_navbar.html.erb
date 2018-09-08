@@ -8,11 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">18 Todo List App</a>
+      <a class="navbar-brand" href="<%= root_path %>">18 Todo List App</a>
     </div>
     <ul class="nav navbar-nav">
       <% if user_signed_in? %>
-        <li><a href="#">Tareas completadas: <%= current_user.tasks.count %> / <%= Task.count %></a></li>
+        <li><a href="<%= user_tasks_index_path %>">Tareas completadas: <%= current_user.user_tasks.count %> / <%= Task.count %></a></li>
       <% end %>
     </ul>
     <!-- Collect the nav links, forms, and other content for toggling -->
