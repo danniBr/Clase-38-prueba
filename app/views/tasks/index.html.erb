@@ -20,9 +20,8 @@
            <% else %>
               <%= link_to "Listo", task_user_tasks_path(task), method: :post, class: "btn btn-success" %>
            <% end %>
-           <%= link_to 'Show', task %>
-           <%= link_to 'Edit', edit_task_path(task) %>
-           <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+           <%= link_to 'Ver tarea', task, :class => 'btn btn-info' %>
+           
            </div>
         </div>
       </div>
