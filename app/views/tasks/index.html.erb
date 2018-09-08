@@ -4,12 +4,23 @@
 
   <div class="row">
     <% @tasks.each do | task | %>
+
       <div class="col-md-4">
         <div class="card">
            <%= image_tag(task.photo, :class => 'img-responsive' ) %>
            <div class="body">
             <h5><%= task.name %></h5>
-           <%= link_to "Completar", task_user_tasks_path(task), method: :post, class: "btn btn-success" %>
+
+           <% if !UserTask.find_by(task_id: task, user_id: current_user).nil? %>
+              
+              <% if UserTask.find_by(task_id: task, user_id: current_user).status == true %>
+                  <%= link_to "NO listo", task_user_tasks_path(task), method: :post, class: "btn btn-danger" %>
+              <% else %>
+                  <%= link_to "Listo", task_user_tasks_path(task), method: :post, class: "btn btn-success" %>
+              <% end %>
+           <% else %>
+              <%= link_to "Listo", task_user_tasks_path(task), method: :post, class: "btn btn-success" %>
+           <% end %>
            <%= link_to 'Show', task %>
            <%= link_to 'Edit', edit_task_path(task) %>
            <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
